@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Editar Producto{% endblock %}
+
+{% block contenido %}
+<h2 class="mb-4">Editar Producto: {{ producto.nombre }}</h2>
+
+<form method="post">
+    {% csrf_token %}
+    {% for field in form %}
+    <div class="mb-3">
+        <label class="form-label fw-bold">{{ field.label }}</label>
+        {{ field }}
+        {% if field.errors %}
+            <div class="text-danger">{{ field.errors }}</div>
+        {% endif %}
+    </div>
+    {% endfor %}
+    <button type="submit" class="btn btn-warning">Actualizar Producto</button>
+    <a href="{% url 'lista_productos' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}
