@@ -45,3 +45,9 @@ def eliminar_producto(request, pk):
         messages.success(request, 'Producto eliminado correctamente.')
         return redirect('lista_productos')
     return render(request, 'productos/eliminar.html', {'producto': producto})
+from rest_framework import viewsets
+from .serializers import ProductoSerializer
+
+class ProductoViewSet(viewsets.ModelViewSet):
+    queryset = Producto.objects.all()
+    serializer_class = ProductoSerializer
