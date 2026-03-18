@@ -51,7 +51,7 @@ class AppProductos:
             entry.grid(row=fila, column=col + 1, padx=5, pady=5)
             setattr(self, attr_name, entry)
 
-        Frame de botones
+        # Frame de botones
         frame_botones = tk.Frame(self.root, bg="#1a2332")
         frame_botones.pack(pady=10)
 
